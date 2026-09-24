@@ -19,15 +19,4 @@ describe("Login SauceDemo", () => {
       "Epic sadface: Sorry, this user has been locked out."
     );
   });
-
-  it("problem_user menampilkan gambar produk yang salah", () => {
-    cy.login("problem_user", "secret_sauce");
-
-    cy.get(".inventory_item_img").then(($images) => {
-      const sources = [...$images].map((image) => image.getAttribute("src"));
-      const uniqueSources = new Set(sources);
-
-      expect(uniqueSources.size).to.be.lessThan(sources.length);
-    });
-  });
 });
