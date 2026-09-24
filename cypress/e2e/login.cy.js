@@ -20,3 +20,11 @@ describe("Login SauceDemo", () => {
     );
   });
 });
+
+describe("Performance Glitch User", () => {
+  it("berhasil login walau lambat", () => {
+    cy.login("performance_glitch_user", "secret_sauce");
+
+    cy.url({ timeout: 10000 }).should("include", "/inventory.html");
+  });
+});
